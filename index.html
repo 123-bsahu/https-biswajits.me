@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Your Name - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>BISWAJIT SAHU</h1>
+        <h1>Your Name</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -19,25 +19,76 @@
     </header>
     <section id="about">
         <h2>About Me</h2>
-        <p>This is a brief introduction about Biswajit Sahu.</p>
+        <p>Brief introduction about yourself.</p>
     </section>
     <section id="projects">
         <h2>Projects</h2>
         <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of Project 1.</p>
+            <h3>Project Title</h3>
+            <p>Project description goes here.</p>
         </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of Project 2.</p>
-        </div>
+        <!-- Add more projects as needed -->
     </section>
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:biswajit.sahu1405@gmail.com">biswajit.sahu1405@gmail.com</a></p>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
     <footer>
-        <p>&copy; 2024 Biswajit Sahu</p>
+        <p>&copy; 2024 Your Name</p>
     </footer>
+
+    <!-- JavaScript code embedded directly in index.html -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Responsive navigation menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Close navigation menu on link click (for mobile)
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+
+        // Simple form validation
+        const contactForm = document.querySelector('#contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[name="name"]').value;
+            const email = this.querySelector('input[name="email"]').value;
+            const message = this.querySelector('textarea[name="message"]').value;
+            
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Send the form data (placeholder for actual form submission logic)
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
