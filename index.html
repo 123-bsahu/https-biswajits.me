@@ -14,6 +14,12 @@
             min-height: 100vh; /* Full viewport height */
             padding: 20px; /* Padding inside sections */
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 120%; /* Increase text size by 20% */
         }
 
         /* Container to hold the scrolling text */
@@ -26,21 +32,21 @@
             z-index: 1;
         }
 
-        /* Scrolling text with 100% size increase */
+        /* Scrolling text with increased size */
         .scrolling-text {
             display: inline-block;
             white-space: nowrap; /* Prevent wrapping */
             font-size: 2rem; /* Adjust starting font size */
             font-weight: bold;
             color: #333; /* Adjust color as needed */
-            animation: scroll-text 10s linear infinite;
+            line-height: 1.2; /* Increase letter height by 20% */
+            animation: scroll-text 15s linear infinite;
         }
 
         .scrolling-text span {
             display: inline-block;
-            padding-right: 3rem; /* Space between each word */
-            transform: scale(1);
-            animation: increase-size 5s ease-in-out infinite alternate;
+            padding-right: 5rem; /* Space between each word to avoid intersection */
+            transform: scale(1.2); /* Increase size by 20% */
         }
 
         /* Keyframe for scrolling effect */
@@ -50,16 +56,6 @@
             }
             100% {
                 transform: translateX(-100%);
-            }
-        }
-
-        /* Keyframe for increasing size */
-        @keyframes increase-size {
-            0% {
-                transform: scale(1); /* Original size */
-            }
-            100% {
-                transform: scale(2); /* 100% increase */
             }
         }
     </style>
