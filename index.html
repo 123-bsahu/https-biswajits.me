@@ -20,43 +20,20 @@
             align-items: center;
             text-align: center;
             font-size: 120%; /* Increase text size by 20% */
+            opacity: 0; /* Initially unclear */
+            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
         }
 
-        /* Container to hold the scrolling text */
-        .scrolling-text-container {
-            width: 100vw; /* Full width of the viewport */
-            overflow: hidden; /* Hide the overflow */
-            white-space: nowrap; /* Prevent text from wrapping */
-            box-sizing: border-box;
-            position: relative;
-            z-index: 1;
+        /* AOS fade-up */
+        [data-aos="fade-up"] {
+            opacity: 1; /* Clear when scrolled into view */
+            transform: translateY(0); /* Reset translation */
         }
 
-        /* Scrolling text with increased size */
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap; /* Prevent wrapping */
-            font-size: 2rem; /* Adjust starting font size */
-            font-weight: bold;
-            color: #333; /* Adjust color as needed */
-            line-height: 1.2; /* Increase letter height by 20% */
-            animation: scroll-text 15s linear infinite;
-        }
-
-        .scrolling-text span {
-            display: inline-block;
-            padding-right: 5rem; /* Space between each word to avoid intersection */
-            transform: scale(1.2); /* Increase size by 20% */
-        }
-
-        /* Keyframe for scrolling effect */
-        @keyframes scroll-text {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        /* AOS initial state for fade-up */
+        [data-aos="fade-up"]:not(.aos-animate) {
+            opacity: 0; /* Start with low opacity */
+            transform: translateY(50px); /* Start slightly lower on the page */
         }
     </style>
 </head>
@@ -69,64 +46,6 @@
 </section>
 
 <!-- About Section -->
-<section id="about" data-aos="slide-up">
+<section id="about" data-aos="fade-up">
     <div class="scrolling-text-container">
-        <div class="scrolling-text">
-            <span>+Code </span>
-            <span>+Design </span>
-            <span>+Develop </span>
-            <span>+Innovate </span>
-        </div>
-    </div>
-    <h2>About Me</h2>
-    <p>I am a passionate developer with experience in creating dynamic web applications.</p>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" data-aos="zoom-in">
-    <h2>My Skills</h2>
-    <ul>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>JavaScript</li>
-        <li>React.js</li>
-    </ul>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" data-aos="fade-up">
-    <h2>My Projects</h2>
-    <div class="project" data-aos="flip-left">
-        <h3>Project One</h3>
-        <p>A web application built with HTML, CSS, and JavaScript.</p>
-    </div>
-    <div class="project" data-aos="flip-right">
-        <h3>Project Two</h3>
-        <p>A full-stack application using Node.js and MongoDB.</p>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" data-aos="fade-down">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<!-- AOS JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  // Initialize AOS
-  AOS.init({
-    duration: 1000, // Animation duration in milliseconds
-    easing: 'ease-in-out', // Easing function
-    once: true // Whether animation should happen only once
-  });
-</script>
-
-</body>
-</html>
+        <div class="scrolling-t
