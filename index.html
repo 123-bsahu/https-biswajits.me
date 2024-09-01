@@ -1,42 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
-    <!-- AOS CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <!-- Your Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* General Section Styling */
-        section {
-            min-height: 100vh; /* Full viewport height */
-            padding: 20px; /* Padding inside sections */
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 120%; /* Increase text size by 20% */
-            opacity: 0; /* Initially unclear */
-            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
-        }
-
-        /* AOS fade-up */
-        [data-aos="fade-up"] {
-            opacity: 1; /* Clear when scrolled into view */
-            transform: translateY(0); /* Reset translation */
-        }
-
-        /* AOS initial state for fade-up */
-        [data-aos="fade-up"]:not(.aos-animate) {
-            opacity: 0; /* Start with low opacity */
-            transform: translateY(50px); /* Start slightly lower on the page */
-        }
-    </style>
-</head>
 <body>
 
 <!-- Hero Section -->
@@ -48,4 +9,72 @@
 <!-- About Section -->
 <section id="about" data-aos="fade-up">
     <div class="scrolling-text-container">
-        <div class="scrolling-t
+        <div class="scrolling-text">
+            <span>+Code </span>
+            <span>+Design </span>
+            <span>+Develop </span>
+            <span>+Innovate </span>
+        </div>
+    </div>
+    <h2>About Me</h2>
+    <p><span id="typed-about"></span></p>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" data-aos="fade-up">
+    <h2>My Skills</h2>
+    <p><span id="typed-skills"></span></p>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" data-aos="fade-up">
+    <h2>My Projects</h2>
+    <p><span id="typed-projects"></span></p>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- AOS and Typed.js Initialization -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    easing: 'ease-in-out', // Easing function
+    once: true, // Whether the animation should happen only once
+  });
+
+  // Typed.js for About Me section
+  var typedAbout = new Typed('#typed-about', {
+    strings: ["I am a passionate developer with experience in creating dynamic web applications."],
+    typeSpeed: 50,
+    startDelay: 1000,
+    showCursor: false,
+  });
+
+  // Typed.js for My Skills section
+  var typedSkills = new Typed('#typed-skills', {
+    strings: ["HTML5, CSS3, JavaScript, React.js"],
+    typeSpeed: 50,
+    startDelay: 1000,
+    showCursor: false,
+  });
+
+  // Typed.js for My Projects section
+  var typedProjects = new Typed('#typed-projects', {
+    strings: ["A web application built with HTML, CSS, and JavaScript.", "A full-stack application using Node.js and MongoDB."],
+    typeSpeed: 50,
+    startDelay: 1000,
+    showCursor: false,
+  });
+</script>
+
+</body>
