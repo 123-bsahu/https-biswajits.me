@@ -22,56 +22,41 @@
             font-size: 120%; /* Increase text size by 20% */
         }
 
-        /* Skills Section Styling */
-        #skills ul {
-            list-style-type: disc; /* Bullet points */
-            text-align: left; /* Align text to the left */
-            margin-left: 20px; /* Indentation */
-            padding: 0;
-        }
-
-        /* Let's Connect Section Styling */
-        #lets-connect {
-            background-color: #f4f4f4;
-            padding: 20px;
-            text-align: center;
-        }
-
-        #lets-connect a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        /* Contact Form Styling */
-        #contactForm {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #contactForm input, #contactForm textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        /* Container to hold the scrolling text */
+        .scrolling-text-container {
+            width: 100vw; /* Full width of the viewport */
+            overflow: hidden; /* Hide the overflow */
+            white-space: nowrap; /* Prevent text from wrapping */
             box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            margin: 50px 0; /* Equal margin above and below for even spacing */
         }
 
-        #contactForm button {
-            padding: 10px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
+        /* Scrolling text with increased size */
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap; /* Prevent wrapping */
+            font-size: 3rem; /* Increased font size by 50% */
+            font-weight: bold;
+            color: #333; /* Adjust color as needed */
+            line-height: 1.2; /* Increase letter height by 20% */
+            animation: scroll-text 15s linear infinite;
         }
 
-        #contactForm button:hover {
-            background-color: #0056b3;
+        .scrolling-text span {
+            display: inline-block;
+            padding-right: 10rem; /* Increased space between each word to avoid intersection */
+        }
+
+        /* Keyframe for scrolling effect */
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100%); /* Start outside the right edge */
+            }
+            100% {
+                transform: translateX(-100%); /* End outside the left edge */
+            }
         }
     </style>
 </head>
