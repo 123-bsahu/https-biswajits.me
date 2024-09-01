@@ -3,92 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Your Portfolio</title>
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Your Name</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project Title</h3>
-            <p>Project description goes here.</p>
-        </div>
-        <!-- Add more projects as needed -->
-    </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Your Name">
-            <input type="email" name="email" placeholder="Your Email">
-            <textarea name="message" placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
 
-    <!-- JavaScript code embedded directly in index.html -->
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
+<!-- Hero Section -->
+<section id="home" data-aos="fade-in">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Full-Stack Developer | Designer | Creator</p>
+</section>
 
-        // Responsive navigation menu toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('nav ul');
+<!-- About Section -->
+<section id="about" data-aos="slide-up">
+    <h2>About Me</h2>
+    <p>I am a passionate developer with experience in creating dynamic web applications.</p>
+</section>
 
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
+<!-- Skills Section -->
+<section id="skills" data-aos="zoom-in">
+    <h2>My Skills</h2>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>React.js</li>
+    </ul>
+</section>
 
-        // Close navigation menu on link click (for mobile)
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-            });
-        });
+<!-- Projects Section -->
+<section id="projects" data-aos="fade-up">
+    <h2>My Projects</h2>
+    <div class="project" data-aos="flip-left">
+        <h3>Project One</h3>
+        <p>A web application built with HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project" data-aos="flip-right">
+        <h3>Project Two</h3>
+        <p>A full-stack application using Node.js and MongoDB.</p>
+    </div>
+</section>
 
-        // Simple form validation
-        const contactForm = document.querySelector('#contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = this.querySelector('input[name="name"]').value;
-            const email = this.querySelector('input[name="email"]').value;
-            const message = this.querySelector('textarea[name="message"]').value;
-            
-            if (name === '' || email === '' || message === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            // Send the form data (placeholder for actual form submission logic)
-            alert('Thank you for your message!');
-            this.reset();
-        });
-    </script>
+<!-- Contact Section -->
+<section id="contact" data-aos="fade-down">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- AOS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    easing: 'ease-in-out', // Easing function
+    once: true // Whether animation should happen only once
+  });
+</script>
+
 </body>
 </html>
