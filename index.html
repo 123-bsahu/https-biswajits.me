@@ -20,8 +20,8 @@
             align-items: center;
             text-align: center;
             font-size: 120%; /* Increase text size by 20% */
-            opacity: 0; /* Initially unclear */
-            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+            opacity: 1; /* Ensure visibility for debugging */
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth transition for opacity and transform */
         }
 
         /* AOS fade-up */
@@ -97,7 +97,14 @@
 <!-- AOS JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000, // Animation duration in milliseconds
-    easing: 'ease-in-out', // Easing function
-    once: true, // Whether the animation should happen only once
+  document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 1000, // Animation duration in milliseconds
+        easing: 'ease-in-out', // Easing function
+        once: true, // Whether the animation should happen only once
+      });
+  });
+</script>
+
+</body>
+</html>
