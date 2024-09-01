@@ -9,12 +9,21 @@
     <!-- Your Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
+        /* General Section Styling */
+        section {
+            min-height: 100vh; /* Full viewport height */
+            padding: 20px; /* Padding inside sections */
+            box-sizing: border-box;
+        }
+
         /* Container to hold the scrolling text */
         .scrolling-text-container {
             width: 100vw; /* Full width of the viewport */
             overflow: hidden; /* Hide the overflow */
             white-space: nowrap; /* Prevent text from wrapping */
             box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
 
         /* Scrolling text with 100% size increase */
@@ -61,4 +70,67 @@
 <section id="home" data-aos="fade-in">
     <h1>Welcome to My Portfolio</h1>
     <p>Full-Stack Developer | Designer | Creator</p>
-</secti
+</section>
+
+<!-- About Section -->
+<section id="about" data-aos="slide-up">
+    <div class="scrolling-text-container">
+        <div class="scrolling-text">
+            <span>+Code </span>
+            <span>+Design </span>
+            <span>+Develop </span>
+            <span>+Innovate </span>
+        </div>
+    </div>
+    <h2>About Me</h2>
+    <p>I am a passionate developer with experience in creating dynamic web applications.</p>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" data-aos="zoom-in">
+    <h2>My Skills</h2>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>React.js</li>
+    </ul>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" data-aos="fade-up">
+    <h2>My Projects</h2>
+    <div class="project" data-aos="flip-left">
+        <h3>Project One</h3>
+        <p>A web application built with HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project" data-aos="flip-right">
+        <h3>Project Two</h3>
+        <p>A full-stack application using Node.js and MongoDB.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" data-aos="fade-down">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- AOS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    easing: 'ease-in-out', // Easing function
+    once: true // Whether animation should happen only once
+  });
+</script>
+
+</body>
+</html>
