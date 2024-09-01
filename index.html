@@ -20,20 +20,43 @@
             align-items: center;
             text-align: center;
             font-size: 120%; /* Increase text size by 20% */
-            opacity: 1; /* Ensure visibility for debugging */
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Smooth transition for opacity and transform */
         }
 
-        /* AOS fade-up */
-        [data-aos="fade-up"] {
-            opacity: 1; /* Clear when scrolled into view */
-            transform: translateY(0); /* Reset translation */
+        /* Container to hold the scrolling text */
+        .scrolling-text-container {
+            width: 100vw; /* Full width of the viewport */
+            overflow: hidden; /* Hide the overflow */
+            white-space: nowrap; /* Prevent text from wrapping */
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
 
-        /* AOS initial state for fade-up */
-        [data-aos="fade-up"]:not(.aos-animate) {
-            opacity: 0; /* Start with low opacity */
-            transform: translateY(50px); /* Start slightly lower on the page */
+        /* Scrolling text with increased size */
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap; /* Prevent wrapping */
+            font-size: 2rem; /* Adjust starting font size */
+            font-weight: bold;
+            color: #333; /* Adjust color as needed */
+            line-height: 1.2; /* Increase letter height by 20% */
+            animation: scroll-text 15s linear infinite;
+        }
+
+        .scrolling-text span {
+            display: inline-block;
+            padding-right: 5rem; /* Space between each word to avoid intersection */
+            transform: scale(1.2); /* Increase size by 20% */
+        }
+
+        /* Keyframe for scrolling effect */
+        @keyframes scroll-text {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
     </style>
 </head>
@@ -46,7 +69,7 @@
 </section>
 
 <!-- About Section -->
-<section id="about" data-aos="fade-up">
+<section id="about" data-aos="slide-up">
     <div class="scrolling-text-container">
         <div class="scrolling-text">
             <span>+Code </span>
@@ -60,7 +83,7 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" data-aos="fade-up">
+<section id="skills" data-aos="zoom-in">
     <h2>My Skills</h2>
     <ul>
         <li>HTML5</li>
@@ -84,7 +107,7 @@
 </section>
 
 <!-- Contact Section -->
-<section id="contact" data-aos="fade-up">
+<section id="contact" data-aos="fade-down">
     <h2>Contact Me</h2>
     <form id="contactForm">
         <input type="text" name="name" placeholder="Your Name" required>
@@ -97,12 +120,11 @@
 <!-- AOS JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      AOS.init({
-        duration: 1000, // Animation duration in milliseconds
-        easing: 'ease-in-out', // Easing function
-        once: true, // Whether the animation should happen only once
-      });
+  // Initialize AOS
+  AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    easing: 'ease-in-out', // Easing function
+    once: true // Whether animation should happen only once
   });
 </script>
 
